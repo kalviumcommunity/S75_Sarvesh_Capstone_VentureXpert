@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-custom-dark text-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-brand text-black rounded-md hover:bg-brand/90 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-brand text-black rounded-md hover:bg-brand/90 transition-colors;
+  }
+
+  .input-dark {
+    @apply bg-custom-darker border-gray-700 text-white placeholder-gray-500 focus:border-brand focus:ring-brand;
+  }
+
+  .card-dark {
+    @apply bg-gray-900 border border-gray-800 shadow-xl;
+  }
+}
