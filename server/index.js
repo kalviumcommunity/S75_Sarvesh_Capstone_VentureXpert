@@ -11,26 +11,10 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-// Load environment variables from .env file
-require('dotenv').config();
-
-const mongoose = require('mongoose');
-
-// Get the MongoDB URI from environment variables
-const uri = process.env.MONGODB_URI;
-
-// Connect to MongoDB
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => {
-  console.log('MongoDB connected successfully!');
-})
-.catch((err) => {
-  console.error('MongoDB connection error:', err);
-});
-
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((error) => console.log("Error connecting to MongoDB:", error));
 
 // Use auth routes
 app.use("/api/auth", authRoutes);

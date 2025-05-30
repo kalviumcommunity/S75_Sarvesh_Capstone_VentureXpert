@@ -10,11 +10,3 @@ router.post("/signup", signup);
 router.post("/signin", signin);
 
 export default router;
-
-router.post("/feedback", (req, res) => {
-  const { message, userId } = req.body;
-  res.status(201).json({
-    message: "Feedback received",
-    data: { userId, message }
-  });
-});
