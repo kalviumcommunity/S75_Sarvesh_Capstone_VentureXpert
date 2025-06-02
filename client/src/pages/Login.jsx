@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../config/api";
 
 export function Login() {
   const [email, setEmail] = useState("");
@@ -17,10 +18,10 @@ export function Login() {
     setSuccessMessage(""); // Reset success message
 
     try {
-      const response = await axios.post(
-        "http://localhost:4000/api/auth/signin",
-        { email, password }
-      );
+      const response = await axios.post(`${API_BASE_URL}/api/auth/signin`, {
+        email,
+        password,
+      });
 
       if (response.status === 200) {
         // Store authentication token in localStorage
