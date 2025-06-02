@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../config/api";
 
 export function Signup() {
   const [formData, setFormData] = useState({
@@ -30,16 +31,13 @@ export function Signup() {
     try {
       const { fullName, email, role, password, company } = formData;
 
-      const response = await axios.post(
-        "http://localhost:4000/api/auth/signup",
-        {
-          fullName,
-          email,
-          role,
-          password,
-          company,
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/api/auth/signup`, {
+        fullName,
+        email,
+        role,
+        password,
+        company,
+      });
 
       if (response.status === 201) {
         setSuccessMessage("Signup successful! Redirecting to login...");
@@ -65,7 +63,7 @@ export function Signup() {
   };
 
   return (
-    <div className="flex flex-col justify-center min-h-screen py-12 bg-custom-dark sm:px-6 lg:px-8">
+    <div className="flex flex-col justify-center py-12 min-h-screen bg-custom-dark sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-3xl font-extrabold text-center text-white">
           Create your account
@@ -90,7 +88,7 @@ export function Signup() {
                 value={formData.fullName}
                 onChange={handleChange}
                 disabled={isSuccess}
-                className="block w-full px-3 py-2 mt-1 border rounded-md shadow-sm input-dark"
+                className="block px-3 py-2 mt-1 w-full rounded-md border shadow-sm input-dark"
               />
             </div>
 
@@ -110,7 +108,7 @@ export function Signup() {
                 value={formData.email}
                 onChange={handleChange}
                 disabled={isSuccess}
-                className="block w-full px-3 py-2 mt-1 border rounded-md shadow-sm input-dark"
+                className="block px-3 py-2 mt-1 w-full rounded-md border shadow-sm input-dark"
               />
             </div>
 
@@ -126,7 +124,7 @@ export function Signup() {
                 value={formData.role}
                 onChange={handleChange}
                 disabled={isSuccess}
-                className="block w-full py-2 pl-3 pr-10 mt-1 text-base rounded-md input-dark"
+                className="block py-2 pr-10 pl-3 mt-1 w-full text-base rounded-md input-dark"
                 required
               >
                 <option value="">Select your role</option>
@@ -151,7 +149,7 @@ export function Signup() {
                 value={formData.company}
                 onChange={handleChange}
                 disabled={isSuccess}
-                className="block w-full px-3 py-2 mt-1 border rounded-md shadow-sm input-dark"
+                className="block px-3 py-2 mt-1 w-full rounded-md border shadow-sm input-dark"
               />
             </div>
 
@@ -170,7 +168,7 @@ export function Signup() {
                 value={formData.password}
                 onChange={handleChange}
                 disabled={isSuccess}
-                className="block w-full px-3 py-2 mt-1 border rounded-md shadow-sm input-dark"
+                className="block px-3 py-2 mt-1 w-full rounded-md border shadow-sm input-dark"
               />
             </div>
 
@@ -188,7 +186,7 @@ export function Signup() {
               <button
                 type="submit"
                 disabled={isSubmitting || isSuccess}
-                className="flex justify-center w-full px-4 py-2 text-sm font-medium text-black border border-transparent rounded-md shadow-sm bg-brand hover:bg-brand/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
+                className="flex justify-center px-4 py-2 w-full text-sm font-medium text-black rounded-md border border-transparent shadow-sm bg-brand hover:bg-brand/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"
               >
                 {isSubmitting ? "Signing up..." : "Sign up"}
               </button>
