@@ -113,7 +113,7 @@ export function Explore({ viewType }) {
 
       const result = await send(
         "service_l39mel2",
-        "template_8tzjui9",
+        "template_km8rwka",
         templateParams,
         "SyWmFGRGJ5QCFl4NU"
       );
@@ -185,10 +185,10 @@ export function Explore({ viewType }) {
   );
 
   return (
-    <div className="min-h-screen py-8 bg-custom-darker">
+    <div className="py-8 min-h-screen bg-custom-darker">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-extrabold tracking-tight text-white">
             Explore {viewType === "startups" ? "Startups" : "Investors"}
           </h1>
@@ -221,7 +221,7 @@ export function Explore({ viewType }) {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <div className="relative">
               <Search
-                className="absolute text-gray-400 transform -translate-y-1/2 left-3 top-1/2"
+                className="absolute left-3 top-1/2 text-gray-400 transform -translate-y-1/2"
                 size={20}
               />
               <input
@@ -285,10 +285,10 @@ export function Explore({ viewType }) {
             viewType === "startups" ? (
               <div
                 key={index}
-                className="overflow-hidden transition-all duration-300 bg-gray-900 border border-gray-800 shadow-xl rounded-2xl hover:scale-105 hover:shadow-2xl"
+                className="overflow-hidden bg-gray-900 rounded-2xl border border-gray-800 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               >
                 <div className="p-6">
-                  <div className="flex items-start justify-between">
+                  <div className="flex justify-between items-start">
                     <div>
                       <h3 className="text-xl font-semibold text-white">
                         {item.name}
@@ -330,7 +330,7 @@ export function Explore({ viewType }) {
                   </div>
 
                   <div className="pt-4 mt-4 border-t border-gray-700">
-                    <div className="flex items-center justify-between">
+                    <div className="flex justify-between items-center">
                       <div className="flex items-center text-sm text-gray-400">
                         <Users size={16} className="mr-1" />
                         <span>{item.team}</span>
@@ -342,7 +342,7 @@ export function Explore({ viewType }) {
                         </div>
                         <button
                           onClick={() => handleBookSlot(item)}
-                          className="flex items-center px-3 py-1 text-black transition-colors rounded-md bg-brand hover:bg-brand/90"
+                          className="flex items-center px-3 py-1 text-black rounded-md transition-colors bg-brand hover:bg-brand/90"
                         >
                           <Calendar size={16} className="mr-1" />
                           Book a Slot
@@ -358,7 +358,7 @@ export function Explore({ viewType }) {
                 className="overflow-hidden bg-[#111826] rounded-lg shadow-md"
               >
                 <div className="p-6">
-                  <div className="flex items-start justify-between">
+                  <div className="flex justify-between items-start">
                     <div>
                       <h3 className="text-xl font-semibold text-white">
                         {item.name}
@@ -422,14 +422,14 @@ export function Explore({ viewType }) {
                   </div>
 
                   <div className="pt-4 mt-4 border-t border-gray-200">
-                    <div className="flex items-center justify-between">
+                    <div className="flex justify-between items-center">
                       <div className="flex items-center text-sm text-gray-500">
                         <Users size={16} className="mr-1" />
                         <span>{item.team}</span>
                       </div>
                       <button
                         onClick={() => handleBookSlot(item)}
-                        className="flex items-center px-3 py-1 text-white transition-colors rounded-md bg-brand hover:bg-brand/90"
+                        className="flex items-center px-3 py-1 text-white rounded-md transition-colors bg-brand hover:bg-brand/90"
                       >
                         <Calendar size={16} className="mr-1" />
                         Book a Slot
@@ -446,7 +446,7 @@ export function Explore({ viewType }) {
         {showBookingModal && selectedItem && (
           <div className="flex overflow-auto fixed inset-0 z-50 justify-center items-center bg-[#111826] bg-opacity-50">
             <div className="relative p-6 mx-4 my-8 w-full max-w-md bg-[#111826] rounded-lg shadow-xl">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex justify-between items-center mb-4">
                 <h3 className="text-lg font-semibold text-white">
                   Book a Meeting with {selectedItem.name}
                 </h3>
@@ -477,13 +477,13 @@ export function Explore({ viewType }) {
                   Enter your email to confirm booking
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                     <Mail size={16} className="text-gray-400" />
                   </div>
                   <input
                     type="email"
                     id="email"
-                    className="w-full py-2 pl-10 pr-3 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                    className="py-2 pr-3 pl-10 w-full text-gray-900 rounded-md border border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                     style={{ backgroundColor: "white" }}
                     placeholder="you@example.com"
                     value={email}
@@ -520,9 +520,9 @@ export function Explore({ viewType }) {
 
         {/* Success Popup */}
         {showSuccessPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="w-full max-w-md p-6 mx-4 bg-white rounded-lg shadow-2xl animate-fade-in">
-              <div className="flex items-center justify-center mb-4 text-green-500">
+          <div className="flex fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50">
+            <div className="p-6 mx-4 w-full max-w-md bg-white rounded-lg shadow-2xl animate-fade-in">
+              <div className="flex justify-center items-center mb-4 text-green-500">
                 <CheckCircle size={48} strokeWidth={1.5} />
               </div>
               <h3 className="mb-2 text-xl font-semibold text-center text-gray-900">
@@ -542,9 +542,9 @@ export function Explore({ viewType }) {
 
         {/* Error Popup */}
         {showErrorPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="w-full max-w-md p-6 mx-4 bg-white rounded-lg shadow-2xl animate-fade-in">
-              <div className="flex items-center justify-center mb-4 text-red-500">
+          <div className="flex fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50">
+            <div className="p-6 mx-4 w-full max-w-md bg-white rounded-lg shadow-2xl animate-fade-in">
+              <div className="flex justify-center items-center mb-4 text-red-500">
                 <AlertTriangle size={48} strokeWidth={1.5} />
               </div>
               <h3 className="mb-2 text-xl font-semibold text-center text-gray-900">
