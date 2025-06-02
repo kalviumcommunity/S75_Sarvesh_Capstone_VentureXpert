@@ -3,6 +3,8 @@ VentureXpert is a web application built with the MERN stack (MongoDB, Express, R
 
 
 https://github.com/SR01032006/Capstone-Daily-Progress.git ( Daily planner )
+https://venturexpert.netlify.app/ (Netlify link)
+
 
 Core Features:
 User Authentication (Login & Signup)
